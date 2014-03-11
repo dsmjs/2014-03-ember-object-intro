@@ -39,5 +39,21 @@ App.Person = Ember.Object.extend(App.Dog, App.Cat, {
     },
     fullname: function() {
         return this.get('first') + ' ' + this.get('last');
+    }.property(),
+    wait: function() {
+        return "person";
+    }.property()
+});
+
+App.Person.reopenClass({
+    wow: 'nice'
+});
+
+App.Animal = App.Person.extend({
+    other: function() {
+        return 'other stuff'
+    }.property(),
+    wait: function() {
+        return "animal";
     }.property()
 });

@@ -10,4 +10,20 @@ test("hello world", function() {
     equal(cat, true);
     var dogg = person.get('dog');
     equal(dogg, true);
+    var wait = person.get('wait');
+    equal(wait, 'person');
+});
+
+test("class level methods work well", function() {
+    equal(App.Person.wow, 'nice')
+});
+
+test("basic inheritance works", function() {
+    var animal = new App.Animal('make', 'it');
+    var fullname = animal.get('fullname');
+    equal('make it', fullname);
+    var other = animal.get('other');
+    equal('other stuff', other);
+    var wait = animal.get('wait');
+    equal(wait, 'animal');
 });
